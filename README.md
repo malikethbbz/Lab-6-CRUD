@@ -18,7 +18,7 @@ Este proyecto es un CRUD (Crear, Leer, Actualizar, Borrar) de categorías bancar
 1. Clonar o descargar el repositorio.
 
    ```bash
-   git clone https://github.com/TU-USUARIO/lab6-crud.git
+   git clone https://github.com/malikethbbz/lab6-crud.git
    cd lab6-crud
    ```
 
