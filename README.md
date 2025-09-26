@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# Lab 6 - CRUD de Categorías Bancarias con Firebase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es un CRUD (Crear, Leer, Actualizar, Borrar) de categorías bancarias utilizando **React** y **Firebase Firestore**. Está pensado como un laboratorio de práctica para la gestión de datos en tiempo real.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Contenido
 
-### `npm start`
+* `src/App.js` → Componente principal que integra el CRUD.
+* `src/Categories.js` → Componente con el formulario y lista de categorías.
+* `src/firebase.js` → Configuración de Firebase.
+* `package.json` → Dependencias del proyecto.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 1. Configuración del proyecto
 
-### `npm test`
+1. Clonar o descargar el repositorio.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/TU-USUARIO/lab6-crud.git
+   cd lab6-crud
+   ```
 
-### `npm run build`
+2. Instalar dependencias:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Configurar Firebase:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   * Ir a [Firebase Console](https://console.firebase.google.com/)
+   * Crear un nuevo proyecto
+   * Activar **Firestore Database** en modo prueba
+   * Copiar la configuración del SDK (apiKey, projectId, etc.)
+   * Reemplazar los valores en `src/firebase.js`
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 2. Estructura de Firebase
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+La colección principal es `categories`, con los siguientes campos:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* `id` (generado automáticamente)
+* `name` (string, obligatorio)
+* `description` (string, opcional)
+* `created_at` (timestamp, automático)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 3. Uso del CRUD
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **Crear**: llenar el formulario y hacer clic en "Create".
+* **Leer**: la lista se actualiza automáticamente mostrando todas las categorías.
+* **Actualizar**: hacer clic en "Edit", modificar los campos y luego "Update".
+* **Eliminar**: hacer clic en "Delete" junto a la categoría correspondiente.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Ejemplos de categorías de prueba:
 
-### Code Splitting
+| Name               | Description                            |
+| ------------------ | -------------------------------------- |
+| Checking Account   | Cuenta corriente estándar              |
+| Savings Account    | Cuenta de ahorro con interés           |
+| Credit Card        | Cashback y puntos de recompensa        |
+| Personal Loan      | Préstamos personales a corto plazo     |
+| Mortgage           | Créditos hipotecarios                  |
+| Investment Account | Cuentas de inversión (acciones, bonos) |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 4. Correr la aplicación localmente
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+* Abrir [http://localhost:3000](http://localhost:3000)
+* Probar el CRUD en tiempo real
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 5. Flujo de Git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Inicializar repositorio (solo si no lo has hecho):
 
-### Deployment
+   ```bash
+   git init
+   git add .
+   git commit -m "Versión inicial del Lab 6 CRUD"
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. Crear branch principal:
 
-### `npm run build` fails to minify
+   ```bash
+   git branch -M main
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Conectar con GitHub:
+
+   ```bash
+   git remote add origin https://github.com/TU-USUARIO/lab6-crud.git
+   ```
+
+4. Subir cambios:
+
+   ```bash
+   git push -u origin main
+   ```
+
+* Para cambios posteriores:
+
+  ```bash
+  git add .
+  git commit -m "Descripción de los cambios"
+  git push
+  ```
+
+---
+
+## 6. Notas
+
+* La app no requiere backend propio: todo se maneja con **Firebase Firestore**.
+* Se puede cambiar el tema de las categorías a otros contextos bancarios, financieros o empresariales según la necesidad.
