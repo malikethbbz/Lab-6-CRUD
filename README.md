@@ -1,6 +1,6 @@
 # Lab 6 - CRUD de Categorías Bancarias con Firebase
 
-Este proyecto es un CRUD (Crear, Leer, Actualizar, Borrar) de categorías bancarias utilizando **React** y **Firebase Firestore**. Está pensado como un laboratorio de práctica para la gestión de datos en tiempo real.
+Este proyecto es un CRUD (Crear, Leer, Actualizar, Borrar) de categorías bancarias utilizando **React** y **Firebase Firestore**.
 
 ---
 
